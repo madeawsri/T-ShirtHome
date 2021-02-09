@@ -102,25 +102,28 @@
             /* await liff.init({
                  liffId: "1655302707-kJaAe7P7"
              })*/
-            getEnvironment()
-            getUserProfile()
-                // getContext()
-                // getFriendship()
-                // createUniversalLink()
+
+            await liff.init({
+                liffId: "1655302707-kJaAe7P7"
+            }, () => {
+                if (liff.isLoggedIn()) {
+                    // ขั้นตอน 4.4 รออยู่
+                    getEnvironment()
+                    getUserProfile()
+                        // getContext()
+                        // getFriendship()
+                        // createUniversalLink()
+
+                    //main();
+                } else {
+                    liff.login();
+                }
+            }, err => console.error(err.code, error.message));
+
+
+
         }
-        //main()
-
-
-        await liff.init({
-            liffId: "1655302707-kJaAe7P7"
-        }, () => {
-            if (liff.isLoggedIn()) {
-                // ขั้นตอน 4.4 รออยู่
-                main();
-            } else {
-                liff.login();
-            }
-        }, err => console.error(err.code, error.message));
+        main()
     </script>
 </body>
 
