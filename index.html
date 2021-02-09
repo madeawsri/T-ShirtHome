@@ -99,16 +99,28 @@
 
         async function main() {
             //alert("LINE Developers x Skooldio")
-            await liff.init({
-                liffId: "1655302707-kJaAe7P7"
-            })
+            /* await liff.init({
+                 liffId: "1655302707-kJaAe7P7"
+             })*/
             getEnvironment()
             getUserProfile()
                 // getContext()
                 // getFriendship()
                 // createUniversalLink()
         }
-        main()
+        //main()
+
+
+        await liff.init({
+            liffId: "1655302707-kJaAe7P7"
+        }, () => {
+            if (liff.isLoggedIn()) {
+                // ขั้นตอน 4.4 รออยู่
+                main();
+            } else {
+                liff.login();
+            }
+        }, err => console.error(err.code, error.message));
     </script>
 </body>
 
