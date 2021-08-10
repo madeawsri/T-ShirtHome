@@ -19,6 +19,7 @@ function initLIFF() {
         liff
             .getProfile()
             .then(profile => {
+                console.log('profile ', profile);
                 document.getElementById("profileImage").src = profile.pictureUrl;
                 document.getElementById("userId").innerHTML = profile.userId;
                 document.getElementById("displayName").innerHTML = profile.displayName;
