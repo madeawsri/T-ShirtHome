@@ -81,7 +81,7 @@ function shareTargetPicker() {
 
 function getProfile() {
     liff.getProfile().then((profile) => {
-        console.log(JSON.stringify(profile))
+        console.log(profile)
         window.alert(JSON.stringify(profile))
     }).catch((e) => {
         console.log(e)
